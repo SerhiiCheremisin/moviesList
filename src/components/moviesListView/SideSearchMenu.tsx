@@ -47,7 +47,7 @@ export default function SideSearchMenu():JSX.Element {
   }
 
    return (
-    <div style={{display: (screenWidth<=650 || screenHeight<=800) && !isBurgerOpen ? "none" : "flex" }} className='movie-list--side-menu'>
+    <aside style={{display: (screenWidth<=650 || screenHeight<=800) && !isBurgerOpen ? "none" : "flex" }} className='movie-list--side-menu'>
       <h3>Genres</h3>
       <div className='movie-list--genres-grid'>
       { genresArray.map( (genre : IGenresListTypes, ) => {
@@ -56,8 +56,8 @@ export default function SideSearchMenu():JSX.Element {
            )
       } )}
       </div>
-      <button onClick={searchHandler} className={chosenGenres.length > 0 ? "search-button" : "search-button--passive"}>Search by a genre</button>
+      <button tabIndex={0} onClick={searchHandler} className={chosenGenres.length > 0 ? "search-button" : "search-button--passive"}>Search by a genre</button>
       { (screenWidth <= 650 || screenHeight<=800) && <button className='burger-closer' onClick={() => dispatch(setBurger(false))}>Close</button>}
-    </div>
+    </aside>
   )
 }

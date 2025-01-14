@@ -25,8 +25,8 @@ export default function GenreCard( { genre }: IGenreCardProps ):JSX.Element {
     };
 
     return(
-        <aside onClick={genreCardHandler} className={isActive ? "movie-list--genre-card" : "movie-list--genre-card-passive"}>
+        <button tabIndex={0} role='button' onClick={genreCardHandler} className={isActive ? "movie-list--genre-card" : "movie-list--genre-card-passive"}>
            { genre.name }
-        </aside>
+        </button>
       )
 }

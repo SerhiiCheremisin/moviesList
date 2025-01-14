@@ -50,17 +50,17 @@ useEffect(() => {
 
   return (
     <div className='pagination-wrapper'>
-      <button onClick={() => paginationNavHandler("left")} className='pagination-button-left'>
+      <button tabIndex={0} onClick={() => paginationNavHandler("left")} className='pagination-button-left'>
       <i className="arrow left"></i>
       </button>
      { numberToDisplay.map( (el:number) => {
          return(
-            <div onClick={() => paginationNavHandler(el)} key={el} className={activePage === el ? "pagination-number" : "pagination-number-inactive"}>
+            <button tabIndex={0} onClick={() => paginationNavHandler(el)} key={el} className={activePage === el ? "pagination-number" : "pagination-number-inactive"}>
               {el}
-            </div>
+            </button>
          )
      }) } 
-      <button onClick={() => paginationNavHandler("right")} className='pagination-button-right'>
+      <button tabIndex={0} onClick={() => paginationNavHandler("right")} className='pagination-button-right'>
       <i className="arrow right"></i>
       </button>
     </div>

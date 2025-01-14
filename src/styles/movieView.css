@@ -46,7 +46,9 @@
    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.55);
 }
 
-.movie-list--card:hover {
+.movie-list--card:hover,
+.movie-list--card:focus
+ {
     filter: sepia(50%) ;
     -webkit-filter:sepia(50%);
     -moz-filter: sepia(50%);

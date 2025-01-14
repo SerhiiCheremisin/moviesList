@@ -26,9 +26,9 @@ export default function Header() {
 
   return (
     <header className='header'>
-      <div className='header--logo'>
+      <a href='/' className='header--logo'>
         <img src="./main.png" alt="main photo" />
-      </div>
+      </a>
       <nav className='header--links'>
         <a href="#">Movies</a>
         <a href="#">TV Shows</a>
