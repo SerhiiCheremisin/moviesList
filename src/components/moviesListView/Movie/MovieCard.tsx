@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import '../../../styles/movieView.css';
 import { IMovieListItem } from '../../../types/propsTypes';
+import MoviePopup from './MoviePopup';
 
 interface MovieCardProps {
     movie: IMovieListItem
@@ -8,8 +9,14 @@ interface MovieCardProps {
 
 export default function MovieCard( { movie }: MovieCardProps ):JSX.Element {
 
+  const [isPopupShowed, setIsPopupShowed] = useState(false);
+
+     if (isPopupShowed) {
+       return <MoviePopup movie={movie} closePopup={setIsPopupShowed} />
+     }
+
            return(
-           <button key={movie.id} className='movie-list--card' onClick={() => alert("Just a temporary placeholder")} tabIndex={0}>
+           <button key={movie.id} className='movie-list--card' onClick={() => setIsPopupShowed(true)} tabIndex={0}>
                <div className='movie-list--card-background' style={{ backgroundImage: `url(https://image.tmdb.org/t/p/w300/${movie.poster_path})`,
                backgroundPosition: 'center',
                backgroundSize: 'cover',

@@ -5,7 +5,7 @@ import { IMovies, IMovieListItem } from '../../types/propsTypes';
 //Components
 import SideSearchMenu from './SideSearchMenu';
 import Paginator from './Paginator';
-import MovieCard from './Movie/Card';
+import MovieCard from './Movie/MovieCard';
 
 export default function MoviesListView():JSX.Element {
 
