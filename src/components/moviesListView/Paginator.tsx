@@ -8,9 +8,11 @@ import { getMoviesByGenresByPage, getPopularMoviesByPage } from '../../services/
 //Hooks
 import useChosenGenres from '../../services/hooks/useChosenGenres';
 import useActivePage from '../../services/hooks/useGetActivePage';
+import useMoviesList from '../../services/hooks/useMoviesList';
 //Redux
 import useCommonDispatch from '../../services/hooks/useCommonDispatch';
 import { setActivePage, setMoviesList } from '../../redux/appStore';
+
 
 export default function Paginator():JSX.Element {
 
@@ -18,6 +20,7 @@ export default function Paginator():JSX.Element {
  const chosenGenres = useChosenGenres();
  const dispatch = useCommonDispatch();
  const numberToDisplay = numberRenderLogic(paginationNumbers, activePage);
+ const movies = useMoviesList();
 
 useEffect(() => {
   if (chosenGenres.length === 0) {
@@ -47,7 +50,11 @@ useEffect(() => {
     }
     dispatch(setActivePage(value));
  }
-
+ if (movies.results.length < 20) {
+    return (
+      <></>
+    )
+ }
   return (
     <div className='pagination-wrapper'>
       <button tabIndex={0} onClick={() => paginationNavHandler("left")} className='pagination-button-left'>

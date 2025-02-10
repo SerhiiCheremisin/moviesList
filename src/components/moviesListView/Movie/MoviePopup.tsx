@@ -18,6 +18,10 @@ export default function MoviePopup( { closePopup, movie } : MoviePopupProps ):JS
  useEffect(() => {
   const index = movieList.results.findIndex(element => element.id === movie.id);
   setCurrentId(index);
+  return( () => {
+    setCurrentId(0);
+    setCurrentMovie(undefined);
+  })
  },[]);
 
  useEffect(() => {
